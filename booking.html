@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Makeover | Esty's Touch MAKEOVER & MORE</title>
+    <meta name="description" content="Book your makeup and makeover session with Esty's Touch in Tema. Quick and easy online scheduling.">
+    
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .pt-page { padding-top: 150px; padding-bottom: 80px; }
+        .time-slots {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        .time-slot {
+            padding: 0.8rem;
+            text-align: center;
+            border: 1px solid var(--primary-light);
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+        .time-slot:hover {
+            border-color: var(--primary-color);
+            background: var(--primary-light);
+        }
+        .time-slot.selected {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+    </style>
+</head>
+<body class="section-bg-alt">
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                Esty's <span>Touch</span>
+            </a>
+            <button class="mobile-toggle" aria-label="Toggle Menu">
+                <i data-lucide="menu"></i>
+            </button>
+            <nav class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="portfolio.html" class="nav-link">Portfolio</a>
+                <a href="booking.html" class="nav-link active">Book Online</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Booking Content -->
+    <section class="container pt-page fade-in">
+        <div class="section-header">
+            <h1 class="heading-lg">Book Your Session</h1>
+            <p class="text-lead">Secure your spot in under 3 clicks and let's create beauty together.</p>
+        </div>
+        
+        <div class="booking-wrap">
+            <!-- Left Side: Information -->
+            <div class="booking-info">
+                <h2 style="font-size: 2rem; margin-bottom: 1.5rem;">Why Book With Us?</h2>
+                <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 1.5rem;">
+                    <li style="display: flex; gap: 1rem;">
+                        <i data-lucide="check-circle"></i>
+                        <span>High quality authentic cosmetics for all skin types</span>
+                    </li>
+                    <li style="display: flex; gap: 1rem;">
+                        <i data-lucide="check-circle"></i>
+                        <span>Detailed consultation to understand your desired look</span>
+                    </li>
+                    <li style="display: flex; gap: 1rem;">
+                        <i data-lucide="check-circle"></i>
+                        <span>Comfortable, child-friendly environment</span>
+                    </li>
+                </ul>
+                
+                <div style="margin-top: 4rem;">
+                    <h3 style="font-size: 1.25rem; margin-bottom: 1rem;">Operating Hours</h3>
+                    <p style="margin-bottom: 0.5rem;"><i data-lucide="clock" style="display: inline-block; vertical-align: middle; margin-right: 0.5rem;"></i> Monday - Sunday</p>
+                    <p style="opacity: 0.9;">8:00 AM - 9:00 PM</p>
+                </div>
+                
+                <div style="position: absolute; bottom: 0; right: 0; opacity: 0.1; transform: translate(20%, 20%); pointer-events: none;">
+                    <i data-lucide="sparkles" style="width: 250px; height: 250px;"></i>
+                </div>
+            </div>
+            
+            <!-- Right Side: The Form -->
+            <div class="booking-form">
+                <form id="scheduleForm" onsubmit="event.preventDefault(); alert('Booking request submitted! We will confirm your session shortly.');">
+                    <h3 style="margin-bottom: 2rem; font-size: 1.5rem;">Appointment Details</h3>
+                    
+                    <div class="form-group">
+                        <label for="service">Select Service *</label>
+                        <select id="service" class="form-control" required>
+                            <option value="">-- Choose a package --</option>
+                            <option value="makeup">Makeup (Bridal, Evening, Casual)</option>
+                            <option value="pedicure">Premium Pedicure</option>
+                            <option value="manicure">Manicure (Acrylic & Stick-on)</option>
+                            <option value="wig">Wig Caps Fixing</option>
+                            <option value="brows-waxing">Eyebrows Trimming & Waxing</option>
+                            <option value="brows-tattoo">Brows Tattooing</option>
+                            <option value="piercing">Piercing</option>
+                            <option value="lashes">Lash Fixing</option>
+                            <option value="gele">Gele</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="date">Select Date *</label>
+                        <input type="date" id="date" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group" style="margin-top: 2rem;">
+                        <label>Select Time *</label>
+                        <div class="time-slots" id="timeSlots">
+                            <!-- Generator for 8 AM to 8 PM -->
+                            <div class="time-slot" onclick="selectTime(this)">08:00 AM</div>
+                            <div class="time-slot" onclick="selectTime(this)">10:00 AM</div>
+                            <div class="time-slot" onclick="selectTime(this)">12:00 PM</div>
+                            <div class="time-slot" onclick="selectTime(this)">02:00 PM</div>
+                            <div class="time-slot" onclick="selectTime(this)">04:00 PM</div>
+                            <div class="time-slot" onclick="selectTime(this)">06:00 PM</div>
+                            <div class="time-slot" onclick="selectTime(this)">08:00 PM</div>
+                        </div>
+                    </div>
+                    
+                    <hr style="margin: 3rem 0; border: none; border-top: 1px solid #eee;">
+                    
+                    <h3 style="margin-bottom: 2rem; font-size: 1.5rem;">Your Information</h3>
+                    
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" class="form-control" placeholder="Jane Doe" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" class="form-control" placeholder="+233 00 000 0000" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="skinType">Skin Type & CRM Preferences (Optional)</label>
+                        <textarea id="skinType" class="form-control" rows="3" placeholder="E.g. Oily skin, sensitive to fragrance, prefer matte finish..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">
+                        Confirm Appointment <i data-lucide="arrow-right"></i>
+                    </button>
+                    <p style="text-align: center; margin-top: 1rem; font-size: 0.85rem; color: var(--text-muted);">
+                        No payment required now. You will pay at the studio.
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Simplified -->
+    <footer class="footer" style="margin-top: 6rem; padding: 2rem 0;">
+        <div class="container text-center">
+            <p>&copy; 2026 Esty's Touch MAKEOVER & MORE.</p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script>
+        lucide.createIcons();
+        
+        // Time slot selection logic
+        function selectTime(element) {
+            const slots = document.querySelectorAll('.time-slot');
+            slots.forEach(slot => slot.classList.remove('selected'));
+            element.classList.add('selected');
+        }
+        
+        // Prevent selecting past dates
+        document.addEventListener('DOMContentLoaded', () => {
+            const dateInput = document.getElementById('date');
+            const today = new Date().toISOString().split('T')[0];
+            dateInput.setAttribute('min', today);
+        });
+    </script>
+</body>
+</html>

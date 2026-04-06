@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Esty's Touch MAKEOVER & MORE</title>
+    <meta name="description" content="Browse our before and after transformations. High-quality makeup portfolio for brides and events in Tema.">
+    
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .pt-page { padding-top: 120px; }
+        .portfolio-header { text-align: center; margin-bottom: 3rem; }
+        
+        .portfolio-filters {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1.2rem;
+            border: 1px solid var(--text-muted);
+            background: transparent;
+            border-radius: var(--radius-full);
+            cursor: pointer;
+            font-family: var(--font-body);
+            transition: var(--transition);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--text-main);
+            color: white;
+            border-color: var(--text-main);
+        }
+
+        /* Portfolio Image Styling */
+        .portfolio-item img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                Esty's <span>Touch</span>
+            </a>
+            <button class="mobile-toggle" aria-label="Toggle Menu">
+                <i data-lucide="menu"></i>
+            </button>
+            <nav class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="portfolio.html" class="nav-link active">Portfolio</a>
+                <a href="booking.html" class="nav-link">Book Online</a>
+                <a href="booking.html" class="btn btn-primary">Book Now</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Content -->
+    <section class="section pt-page">
+        <div class="container">
+            <div class="portfolio-header fade-in">
+                <h1 class="heading-lg">Our Premium Services</h1>
+                <p class="text-lead" style="max-width: 600px; margin: 1rem auto 0;">Explore our stunning portfolio of makeup and beauty styles.</p>
+            </div>
+            
+            <!-- Filters -->
+            <div class="portfolio-filters fade-in">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="makeup">Makeup (Bridal/Occasional)</button>
+                <button class="filter-btn" data-filter="pedicure">Pedicure</button>
+                <button class="filter-btn" data-filter="manicure">Manicure</button>
+                <button class="filter-btn" data-filter="wig">Wig Caps Fixing</button>
+                <button class="filter-btn" data-filter="brows-waxing">Brows Trimming & Waxing</button>
+                <button class="filter-btn" data-filter="brows-tattoo">Brows Tattooing</button>
+                <button class="filter-btn" data-filter="piercing">Piercing</button>
+                <button class="filter-btn" data-filter="lashes">Lash Fixing</button>
+                <button class="filter-btn" data-filter="gele">Gele</button>
+            </div>
+            
+            <!-- Grid -->
+            <div class="portfolio-grid fade-in" style="transition-delay: 0.2s;">
+                <!-- 1. Makeup -->
+                <div class="portfolio-item" data-category="makeup" data-title="Occasional Makeup" data-desc="Expert application of premium cosmetics tailored for any occasion. From soft glam to dramatic evening looks, our makeup ensures a flawless, long-lasting finish for your special day.">
+                    <img src="images/bridal.jpg.jfif" alt="Occasional Makeup" style="background-color: var(--primary-light);">
+                    <div class="portfolio-overlay">
+                        <h4>Occasional Makeup</h4>
+                        <span>View Details</span>
+                    </div>
+                </div>
+                
+                <!-- 2. Pedicure -->
+                <div class="portfolio-item" data-category="pedicure" data-title="Premium Pedicure" data-desc="A rejuvenating premium pedicure experience. Includes deep cleansing, exfoliation, cuticle care, a relaxing massage, and your choice of long-wear polish for perfectly pampered feet.">
+                    <img src="images/pedicure.jfif" alt="Premium Pedicure" style="background-color: var(--primary-light);">
+                    <div class="portfolio-overlay">
+                        <h4>Premium Pedicure</h4>
+                        <span>View Details</span>
+                    </div>
+                </div>
+                
+                <!-- 3. Manicure -->
+                <div class="portfolio-item" data-category="manicure" data-title="Acrylic Manicure" data-desc="Stunning acrylic or stick-on nail application. We offer custom shapes, intricate designs, and flawless gel finishes that provide durability and head-turning elegance.">
+                    <img src="images/nails.jfif" alt="Acrylic Manicure" style="background-color: var(--primary-light);">
+                    <div class="portfolio-overlay">
+                        <h4>Acrylic Manicure</h4>
+                        <span>View Details</span>
+                    </div>
+                </div>
+                
+                <!-- 4. Wig Caps -->
+                <div class="portfolio-item" data-category="wig" data-title="Wig Caps Fixing" data-desc="Flawless wig cap installation and styling. We prepare your natural hair safely and secure the unit for a seamless, natural-looking melt that lasts.">
+                    <img src="images/wigs%20fix.jfif" alt="Wig Caps Fixing" style="background-color: var(--primary-light);">
+                    <div class="portfolio-overlay">
+                        <h4>Wig Caps Fixing</h4>
+                        <span>View Details</span>
+                    </div>
+                </div>
+                
+                <!-- 5. Brows Waxing -->
+                <div class="portfolio-item" data-category="brows-waxing" data-title="Brows Trimming & Waxing" data-desc="Precision brow grooming. We trim, map, and wax your eyebrows to perfectly frame your face and enhance your natural bone structure.">
+                    <img src="images/brows%20trimming.jfif" alt="Brows Trimming & Waxing" style="background-color: var(--primary-light);">
+                    <div class="portfolio-overlay">
+                        <h4>Brows Trimming & Waxing</h4>
+                        <span>View Details</span>
+                    </div>
+                </div>
+
+                <!-- 6. Brows Tattoo -->
+                <div class="portfolio-item" data-category="brows-tattoo" data-title="Brows Tattooing" data-desc="Semi-permanent brow enhancement. Our cosmetic tattooing techniques create realistic, hair-like strokes for fuller, perfectly arched brows that wake up ready.">
+                    <img src="images/brows%20tattooing.jfif" alt="Brows Tattooing" style="background-color: var(--primary-light);">
+                    <div class="portfolio-overlay">
+                        <h4>Brows Tattooing</h4>
+                        <span>View Details</span>
+                    </div>
+                </div>
+
+                <!-- 7. Piercing -->
+                <div class="portfolio-item" data-category="piercing" data-title="Jewelry Piercing" data-desc="Safe and hygienic body and ear piercing services. Choose from our curated collection of high-quality jewelry for a stylish and personalized look.">
+                    <img src="images/piercing.jfif" alt="Jewelry Piercing" style="background-color: var(--primary-light);">
+                    <div class="portfolio-overlay">
+                        <h4>Jewelry Piercing</h4>
+                        <span>View Details</span>
+                    </div>
+                </div>
+
+                <!-- 8. Lash Fixing -->
+                <div class="portfolio-item" data-category="lashes" data-title="Lash Extensions" data-desc="Professional eyelash extensions tailored to your desired volume. From classic natural sweeps to dramatic mega-volume fans, carefully applied to isolate natural lashes.">
+                    <img src="images/lash%20fix.jfif" alt="Lash Extensions" style="background-color: var(--primary-light);">
+                    <div class="portfolio-overlay">
+                        <h4>Lash Extensions</h4>
+                        <span>View Details</span>
+                    </div>
+                </div>
+
+                <!-- 9. Gele -->
+                <div class="portfolio-item" data-category="gele" data-title="Gele Headtie" data-desc="Masterful Gele headtie tying for traditional events. We wrap structurally stunning and beautiful styles that perfectly compliment your cultural attire.">
+                    <img src="images/gele1.jfif" alt="Gele Headtie" style="background-color: var(--primary-light);">
+                    <div class="portfolio-overlay">
+                        <h4>Gele Headtie</h4>
+                        <span>View Details</span>
+                    </div>
+                </div>
+
+            </div>
+            
+            <!-- Service Detail Modal -->
+            <div id="serviceModal" class="modal-overlay">
+                <div class="modal-content">
+                    <button class="modal-close" id="modalClose" aria-label="Close modal">
+                        <i data-lucide="x"></i>
+                    </button>
+                    <div class="modal-body">
+                        <div class="modal-img">
+                            <img id="modalImage" src="" alt="Service Modal Image">
+                        </div>
+                        <div class="modal-text">
+                            <h2 id="modalTitle" class="heading-md">Service Name</h2>
+                            <hr style="margin: 1.5rem 0; border: none; border-top: 1px solid var(--primary-light);">
+                            <p id="modalDesc" class="text-lead" style="color: var(--text-main); font-size: 1.05rem;">Description goes here.</p>
+                            
+                            <a href="booking.html" class="btn btn-primary" style="margin-top: 2rem; width: 100%;">
+                                Book This Session <i data-lucide="arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center" style="margin-top: 4rem;">
+                <p class="text-lead">Ready for your transformation?</p>
+                <a href="booking.html" class="btn btn-primary" style="margin-top: 1rem;">Book Your Session</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Esty's Touch MAKEOVER & MORE. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
